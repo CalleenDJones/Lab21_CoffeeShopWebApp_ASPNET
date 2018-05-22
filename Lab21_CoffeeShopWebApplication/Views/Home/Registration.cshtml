@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Please fill out the form to register. Thank you in advance!</h2>
+
+@*this form will take input from the user and send it to my Welcome action result*@
+
+<form action="/Home/Welcome">
+
+    <td colspan="2">
+        <div style="float:left; width:80px"><asp:Label ID="Label6" runat="server" Text="Label"></asp:Label></div>
+
+        <div style="float: right; width:100px">
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        </div>
+
+        <div style="clear:both"></div>
+
+    </td>
+
+
+
+    <div class="row">
+        <div>
+            <label for="firstName">First Name</label>
+        </div>
+        <div>
+            <input type="text" name="firstName" />
+        </div>
+        <br />
+
+        <div>
+            <label for="lastName">Last Name</label>
+        </div>
+        <div>
+            <input type="text" name="lastName" />
+        </div>
+        <br />
+
+        <div>
+            <label for="emailAddress">Email Address</label>
+        </div>
+        <div>
+            <input type="text" name="emailAddress" />
+        </div>
+        <br />
+
+        <div>
+            <label for="phoneNumber">Phone Number</label>
+        </div>
+        <div>
+            <input type="number" name="phoneNumber" />
+        </div>
+        <br />
+
+        <div>
+            <label for="passWord">Password</label>
+        </div>
+        <div>
+            <input type="text" name="passWord" />
+        </div>
+        <br />
+
+        <input type="submit" value="Submit" />
+     </div>
+</form>
+
+<h1>@ViewBag.First</h1>
+
