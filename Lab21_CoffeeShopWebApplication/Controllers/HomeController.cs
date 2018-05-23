@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace Lab21_CoffeeShopWebApplication.Controllers
 {
     public class HomeController : Controller
@@ -34,14 +35,22 @@ namespace Lab21_CoffeeShopWebApplication.Controllers
             return View();
         }
 
-        public ActionResult Welcome(string firstName = "Whatever", string lastName = "Knowhere", string emailAddress = "none@none.com", int phoneNumber=313-777-9311, string passWord = "password")
+        public ActionResult Welcome(string firstName = "Whatever", string lastName = "Knowhere", 
+            string mailAddress = "123 Infinity", string city = "Hollywood", string state="Washington",
+            int zipCode = 12345, string emailAddress = "none@none.com", int phoneNumber=313-777-9311, 
+            string passWord1 = "password", string passWord2 = "password")
         {
             //ActionResults
             ViewBag.First = firstName;
             ViewBag.Last = lastName;
+            ViewBag.MailAddress = mailAddress;
+            ViewBag.City = city;
+            ViewBag.State = state;
+            ViewBag.ZipCode = zipCode;
             ViewBag.Email = emailAddress;
             ViewBag.Phone = phoneNumber;
-            ViewBag.Password = passWord;
+            ViewBag.Password1 = passWord1;
+            ViewBag.Password2 = passWord2;
             return View();
         }
     }
