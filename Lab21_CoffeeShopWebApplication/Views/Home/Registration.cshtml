@@ -13,15 +13,16 @@
 
 @*this form will take input from the user and send it to my Welcome action result*@
 
-<form action="/Home/Welcome" onsubmit="checkForm()">
 
-    <input type="text" name="firstName" placeholder="First Name" />
+<form action="/Home/Welcome" class ="form1" onsubmit="return validName1(), validName2()"  >
 
-    <input type="text" name="lastName" placeholder="Last Name" /><br /><br />
+    <input type="text" id="first" name="firstName"  placeholder="First Name" />
+
+    <input type="text" id="last" name="lastName" placeholder="Last Name" /><br /><br />
 
     <p>Please select gender:</p>
-    Male: <input type="radio" id="myRadio">
-    Female: <input type="radio" id="myRadio"><br /><br />
+    Male: <input name="gender" type="radio" id="myRadio">
+    Female: <input name="gender" type="radio" id="myRadio"><br /><br />
 
     <input type="text" name="mailAddress" placeholder="Street Address" />
 
@@ -33,101 +34,65 @@
 
     <input type="text" name="emailAddress" placeholder="Email Address" /><br /><br />
 
-    <input type="number" name="phoneNumber" placeholder="Phone Number (no spaces)" /><br /><br />
+    <input type="number" id="phone "name="phoneNumber" placeholder="Phone Number" /><br /><br />
 
     <input type="text" name="passWord1" placeholder="Create Password" />
     <input type="text" name="passWord2" placeholder="Re-enter Password" /><br /><br />
 
-    <input type="submit" value="Submit" class="btn btn-primary" onclick="checkForm()" />
+    <input type="submit" value="Submit" class="btn btn-primary" />
 </form>
 
 
 <script>
-    Console.WriteLine(1);
+    
     function validName1() {
         var letters1 = /^[A-Za-z]+$/;
-        if (firstName.value.match(letters1)) {
+        var first = document.getElementById("first").value;
+        if (letters1.test(first)) {
             return true;
         }
         else {
-            alert("message");
+            alert("INVALID INPUT. Only alpha characters permitted.");
             return false;
         }
     }
 </script>
-Console.WriteLine("z");
 <script>
-    Console.WriteLine("2");
     function validName2() {
         var letters2 = /^[A-Za-z]+$/;
-        if (lastName.value.match(letters2)) {
+        var last = document.getElementById("last").value;
+        if (letters2.test(last)) {
             return true;
         }
         else {
-            alert("message");
+            alert("INVALID INPUT. Only alpha characters permitted.");
             return false;
         }
     }
 </script>
 
 <script>
-    Console.WriteLine(3);
-    function validPassword() {
-        var result = true;
-
-        var pass1 = document.logon.passWord1.value;
-        var pass2 = document.logon.passWord2.value;
-
-        if (pass1.length < 8) {
-            alert("Your password needs to be at least 8 characters. Please try again.");
-            result = false;
-        } else if (pass1 != pass2) {
-            alert("Your passwords don't match. Please try again.");
-            result = false;
-        }
-        return result;
-    }
-</script>
-
-<script>
-    Console.WriteLine(4);
-    function validEmail() {
-        if (/^\w+([\.-]?\w+)*@@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddress.value)) {
-            return (true);
-        }
-        alert("You have entered an invalid email address!");
-        return (false);
-    }
-</script>
-
-<script>
-    Console.WriteLine(5);
+    console.log("5");
     function validPhone() {
         var validnum = /^\d{10}$/;
         if ((phoneNumber.value.match(validnum))) {
             return true;
         }
         else {
-            alert("message");
+            alert("INVALID INPUT. Only ten numeric characters permitted.");
             return false;
         }
     }
 </script>
 
-@*<script>
-        function validButton() {
-            var x = document.getElementById("myRadio");
-            x.checked = true;
-        }
-    </script>
-*@
-
 <script>
-    Console.WriteLine(6);
+    console.log("6");
     function checkForm() {
-        return validName1() && validName2 && validPassword() && validEmail() && validPhone();
+        return validName1() || validName2 || validPhone();
     }
 </script>
+
+
 
 
 

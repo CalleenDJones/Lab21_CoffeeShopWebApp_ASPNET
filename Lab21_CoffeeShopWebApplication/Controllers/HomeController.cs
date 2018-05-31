@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+//Added the Models update for Lab23
+using Lab21_CoffeeShopWebApplication.Models;
+
 
 
 namespace Lab21_CoffeeShopWebApplication.Controllers
@@ -10,9 +13,16 @@ namespace Lab21_CoffeeShopWebApplication.Controllers
     public class HomeController : Controller
     {
 
-
         public ActionResult Index()
-        {
+        {   //Added CoffeeShopDBEntities from Lab21
+            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+            //Added Items
+            ViewBag.Items = ORM.Items.ToList();
+
+            //Build Spec 6 - Modify the action that the user form posts
+            // so that it adds a new User through my ORM
+            //ViewBag.Users = ORM.Users.ToList();
+
             return View();
         }
 
