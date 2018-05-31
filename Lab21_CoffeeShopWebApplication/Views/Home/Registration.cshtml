@@ -1,4 +1,4 @@
-﻿@*not sure if adding @using Lab21_CoffeeShopWebApplication.Controllers will work *@
+﻿
 @using Lab21_CoffeeShopWebApplication.Controllers
 
 @{
@@ -9,14 +9,14 @@
     <h1>REGISTRATION FORM</h1>
 </center>
 
-<h2>Please fill out the form to register. Thank you in advance!</h2><br />
+<h3>Please complete form to register. Thank you in advance!</h3><br />
 
 @*this form will take input from the user and send it to my Welcome action result*@
 
 
-<form action="/Home/Welcome" class ="form1" onsubmit="return validName1(), validName2()"  >
+<form action="/Home/Welcome" class="form1" onsubmit="return validName1(), validName2(), validPhone()">
 
-    <input type="text" id="first" name="firstName"  placeholder="First Name" />
+    <input type="text" id="first" name="firstName" placeholder="First Name" />
 
     <input type="text" id="last" name="lastName" placeholder="Last Name" /><br /><br />
 
@@ -34,17 +34,19 @@
 
     <input type="text" name="emailAddress" placeholder="Email Address" /><br /><br />
 
-    <input type="number" id="phone "name="phoneNumber" placeholder="Phone Number" /><br /><br />
+    <input type="number" id="phone " name="phoneNumber" placeholder="Phone Number" /><br /><br />
 
     <input type="text" name="passWord1" placeholder="Create Password" />
-    <input type="text" name="passWord2" placeholder="Re-enter Password" /><br /><br />
-
-    <input type="submit" value="Submit" class="btn btn-primary" />
+    <input type="text" name="passWord2" placeholder="Re-enter Password" /><br /><br /><br />
+    Click to Complete Registration:
+    <input type="submit" value="Submit" class="btn btn-primary btn-lg" /><br /><br />
+    <p>To Clear Form:</p>
+    <a class="btn btn-danger btn-lg" href="/Home/Registration">Reset&raquo;</a>
 </form>
 
 
 <script>
-    
+
     function validName1() {
         var letters1 = /^[A-Za-z]+$/;
         var first = document.getElementById("first").value;
@@ -75,7 +77,8 @@
     console.log("5");
     function validPhone() {
         var validnum = /^\d{10}$/;
-        if ((phoneNumber.value.match(validnum))) {
+        var validPhone1 = document.getElementById("validnum").value;
+        if (validnum.test(validPhone1)) {
             return true;
         }
         else {

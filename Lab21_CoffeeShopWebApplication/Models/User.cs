@@ -14,6 +14,8 @@ namespace Lab21_CoffeeShopWebApplication.Models
     
     public partial class User
     {
+        //internal object User;
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

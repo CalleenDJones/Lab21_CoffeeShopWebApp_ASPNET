@@ -16,19 +16,33 @@ namespace Lab21_CoffeeShopWebApplication.Controllers
         public ActionResult Index()
         {   //Added CoffeeShopDBEntities from Lab21
             CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
-            //Added Items
+            //Add New Users to Users Table
             ViewBag.Items = ORM.Items.ToList();
 
             //Build Spec 6 - Modify the action that the user form posts
             // so that it adds a new User through my ORM
-            //ViewBag.Users = ORM.Users.ToList();
+            ViewBag.Users = ORM.Users.ToList();
 
             return View();
         }
 
-        public ActionResult About()
+        //Pass in the User data so that we can add the new item to our DB
+        public ActionResult About(User data)
         {
-            ViewBag.Message = "Your application description page.";
+            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+            //Check to make sure the Item Model that we passed in is Valid
+            if (ModelState.IsValid)
+            {
+                //if the model is valid then we add to our DB
+                ORM.Users.Add(data);
+                //we have to save our changes or they won't stay in our DB
+                ORM.SaveChanges();
+                ViewBag.message = $"{data.UserID} has been added";
+            }
+            else
+            {
+                ViewBag.message = "Item is not valid, cannot add to DB.";
+            }
 
             return View();
         }
