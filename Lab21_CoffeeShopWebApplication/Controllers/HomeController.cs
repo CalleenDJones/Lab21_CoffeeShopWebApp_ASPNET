@@ -45,6 +45,18 @@ namespace Lab21_CoffeeShopWebApplication.Controllers
         }
 
 
+        public ActionResult ConfirmedItem(int itemID = 1000, string itemName = "WhatItem",
+            string description = "describe in many words", double price = 24.00, int quantity = 4)
+        {
+            //ActionResults
+            ViewBag.ItemID = itemID;
+            ViewBag.ItemName = itemName;
+            ViewBag.Description = description;
+            ViewBag.Price = price;
+            ViewBag.Quantity = quantity;
+            return View();
+        }
+
 
         ////Trying to add Users to User List
         //public ActionResult Contact(User data1)
@@ -104,5 +116,7 @@ namespace Lab21_CoffeeShopWebApplication.Controllers
             ViewBag.Password2 = passWord2;
             return View();
         }
+
+
     }
 }

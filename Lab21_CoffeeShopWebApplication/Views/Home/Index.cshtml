@@ -19,9 +19,7 @@
             color: aliceblue;
             border: 1px solid black;
             font-size: 26px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 
-                'Lucida Grande', 'Lucida Sans Unicode', 
-                Geneva, Verdana, sans-serif;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
 
         td {
@@ -30,9 +28,7 @@
             border-bottom: .5px solid grey;
             background-color: aliceblue;
             font-size: 20px;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 
-                'Lucida Grande', 'Lucida Sans Unicode', 
-                Geneva, Verdana, sans-serif;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
     </style>
     <div>
@@ -60,6 +56,26 @@
             }
         </table>
     </div>
+    
+
+    <p>Add appropriate information to add items to Menu:</p><br />
+    <form action="/Home/ConfirmedItem" class="form1" onsubmit="return">
+
+        <input type="text" name="ItemName" placeholder="Item Name" />
+        <input type="text" name="Description" placeholder="Description" />
+        <input type="number" name="Price" placeholder="Price" />
+        <input type="number" name="Quantity" placeholder="Quantity" />
+        <input type="submit" value="AddItem" placeholder="Add Item" />
+        <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
+
+        <p>To Complete:
+        <input type="submit" value="Submit" class="btn btn-primary btn-lg" />
+        To Clear Form:
+        <a class="btn btn-danger btn-lg" href="/Home/ConfirmedItem">Reset&raquo;</a>
+        </p>
+    </form>
+
+
 
     <div>
         <p class="lead">
