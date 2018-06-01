@@ -13,10 +13,63 @@ namespace Lab21_CoffeeShopWebApplication.Controllers
     public class HomeController : Controller
     {
 
+        //Pass in the User data so that I can add the new item to my DB
+        public ActionResult About(Item data)
+        {
+            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+            //Check to make sure the Item Model that we passed in is Valid
+            if (ModelState.IsValid)
+            {
+                //if the model is valid then we add to our DB
+                ORM.Items.Add(data);
+                //we have to save our changes or they won't stay in our DB
+                ORM.SaveChanges();
+                ViewBag.message = $"{data.Description} has been added";
+            }
+            else
+            {
+                ViewBag.message = "Item is not valid, cannot add to DB.";
+            }
+            ViewBag.Info = data.ItemName;
+            return View();
+        }
+
+
+
+        public ActionResult Admin(string adminName = "Whatever1", string adminPW = "Knowhere1")
+        {
+            //ActionResults
+            ViewBag.AdminName = adminName;
+            ViewBag.AdminPW = adminPW;
+            return View();
+        }
+
+
+
+        ////Trying to add Users to User List
+        //public ActionResult Contact(User data1)
+        //{
+        //    CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
+        //    //Check to make sure the Item Model that we passed in is Valid
+        //    if (ModelState.IsValid)
+        //    {
+        //        //if the model is valid then we add to our DB
+        //        ORM.Users.Add(data1);
+        //        //we have to save our changes or they won't stay in our DB
+        //        ORM.SaveChanges();
+        //        ViewBag.message = $"{data1.FirstName} has been added";
+        //    }
+        //    else
+        //    {
+        //        ViewBag.message = "User info is not valid! CANNOT ADD to DB.";
+        //    }
+        //}
+
+
         public ActionResult Index()
         {   //Added CoffeeShopDBEntities from Lab21
             CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
-            //Add New Users to Users Table
+            //Add New Items to Items Table
             ViewBag.Items = ORM.Items.ToList();
 
             //Build Spec 6 - Modify the action that the user form posts
@@ -26,33 +79,7 @@ namespace Lab21_CoffeeShopWebApplication.Controllers
             return View();
         }
 
-        //Pass in the User data so that we can add the new item to our DB
-        public ActionResult About(User data)
-        {
-            CoffeeShopDBEntities ORM = new CoffeeShopDBEntities();
-            //Check to make sure the Item Model that we passed in is Valid
-            if (ModelState.IsValid)
-            {
-                //if the model is valid then we add to our DB
-                ORM.Users.Add(data);
-                //we have to save our changes or they won't stay in our DB
-                ORM.SaveChanges();
-                ViewBag.message = $"{data.UserID} has been added";
-            }
-            else
-            {
-                ViewBag.message = "Item is not valid, cannot add to DB.";
-            }
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         //this will to to my registration view
         public ActionResult Registration()
         {

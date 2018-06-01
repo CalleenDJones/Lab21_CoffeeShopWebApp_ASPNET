@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Administrative Login Page</h2>
+<div>
+    Please login to modify any items on the menu:
+
+    <form action="/Home/About" class="form1" onsubmit="return validAdminName1(), validAdminPW1()">
+        <input type="text" name="adminUserName" placeholder="Admin Username" />
+        <input type="text" name="adminPassword" placeholder="Admin Password" /><br /><br />
+        <p>To Complete Login:</p>
+        <input type="submit" value="Submit" class="btn btn-primary btn-lg" /><br /><br />
+        <p>To Clear Form:</p>
+        <a class="btn btn-danger btn-lg" href="/Home/About">Reset&raquo;</a>
+    </form>
+</div>
+
+<script>
+
+    function validAdminName1() {
+        var validAdmin = "AncientOne";
+        var solidName = document.getElementById("adminName").value;
+        if (validAdmin.test(solidName)) {
+            return true;
+        }
+        else {
+            alert("INVALID INPUT. Try again.");
+            return false;
+        }
+    }
+</script>
+
+<script>
+
+    function validAdminPW1() {
+        var validAdminPW = "SpiderMonkey1";
+        var solidPW = document.getElementById("adminPW").value;
+        if (solidPW.test(validAdminPW)) {
+            return true;
+        }
+        else {
+            alert("INVALID INPUT. Try again.");
+            return false;
+        }
+    }
+</script>
+

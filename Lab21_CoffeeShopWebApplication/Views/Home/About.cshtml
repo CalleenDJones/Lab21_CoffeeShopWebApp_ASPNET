@@ -1,7 +1,25 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Admin";
 }
 <h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+
+<p>Add appropriate information to add items to Menu:</p><br />
+<form action="/Home/Confirmation" class="form1" onsubmit="return validAdminName1(), validAdminPW1">
+
+    <input type="text" name="ItemName" placeholder="Item Name" /><br /><br />
+    <input type="text" name="Description" placeholder="Description" /><br /><br />
+    <input type="number" name="Price" placeholder="Price" /><br /><br />
+    <input type="number" name="Quantity" placeholder="Quantity" /><br /><br />
+    <input type="submit" value="AddItem" placeholder="Add Item" /><br /><br />
+    <input type="submit" value="Submit" class="btn btn-primary btn-lg" /><br /><br />
+
+    <p>To Complete: </p>
+    <input type="submit" value="Submit" class="btn btn-primary btn-lg" /><br /><br />
+    <p>To Clear Form:</p>
+    <a class="btn btn-danger btn-lg" href="/Home/Index">Reset&raquo;</a>
+</form>
+
+Click here to Home Page
+
+

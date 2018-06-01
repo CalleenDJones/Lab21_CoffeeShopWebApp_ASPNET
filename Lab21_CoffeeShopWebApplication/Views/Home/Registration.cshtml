@@ -38,7 +38,7 @@
 
     <input type="text" name="passWord1" placeholder="Create Password" />
     <input type="text" name="passWord2" placeholder="Re-enter Password" /><br /><br /><br />
-    Click to Complete Registration:
+    <p>To Complete: </p>
     <input type="submit" value="Submit" class="btn btn-primary btn-lg" /><br /><br />
     <p>To Clear Form:</p>
     <a class="btn btn-danger btn-lg" href="/Home/Registration">Reset&raquo;</a>
@@ -59,6 +59,7 @@
         }
     }
 </script>
+
 <script>
     function validName2() {
         var letters2 = /^[A-Za-z]+$/;
@@ -74,7 +75,6 @@
 </script>
 
 <script>
-    console.log("5");
     function validPhone() {
         var validnum = /^\d{10}$/;
         var validPhone1 = document.getElementById("validnum").value;
@@ -88,12 +88,11 @@
     }
 </script>
 
-<script>
-    console.log("6");
+@*<script>
     function checkForm() {
-        return validName1() || validName2 || validPhone();
+        return validName1() || validName2() || validPhone();
     }
-</script>
+</script>*@
 
 
 
